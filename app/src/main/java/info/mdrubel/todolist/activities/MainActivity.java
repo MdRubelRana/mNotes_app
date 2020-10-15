@@ -1,12 +1,21 @@
-package info.mdrubel.todolist;
+package info.mdrubel.todolist.activities;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.List;
+
+import info.mdrubel.todolist.R;
+import info.mdrubel.todolist.activities.CreateNoteActivity;
+import info.mdrubel.todolist.database.NotesDatabase;
+import info.mdrubel.todolist.entities.Note;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -28,5 +37,23 @@ public class MainActivity extends AppCompatActivity {
                         REQUEST_CODE_ADD_NOTE);
             }
         });
+
+        getNotes();
+    }
+
+    private void getNotes(){
+        class GetNotesTask extends AsyncTask<Void, Void, List<Note>>{
+            @Override
+            protected List<Note> doInBackground(Void... voids) {
+                return NotesDatabase.getDatabase(getApplicationContext()).noteDao().getAllNotes();
+            }
+
+            @Override
+            protected void onPostExecute(List<Note> notes) {
+                super.onPostExecute(notes);
+                Log.d("MY_NOTES", notes.toString());
+            }
+        }
+        new GetNotesTask().execute();
     }
 }
