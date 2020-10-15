@@ -59,6 +59,17 @@
             android:textSize="@dimen/_13ssp" />
     </LinearLayout>
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/notes_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_2sdp"
+        android:layout_marginEnd="@dimen/_2sdp"
+        android:clipToPadding="false"
+        android:paddingStart="0dp"
+        android:paddingEnd="@dimen/_12sdp"
+        android:layout_below="@+id/layout_search" />
+
     <LinearLayout
         android:id="@+id/layout_quick_actions"
         android:layout_width="match_parent"
