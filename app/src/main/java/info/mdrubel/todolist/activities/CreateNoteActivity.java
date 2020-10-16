@@ -2,6 +2,8 @@ package info.mdrubel.todolist.activities;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.GradientDrawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
@@ -30,7 +32,9 @@ public class CreateNoteActivity extends AppCompatActivity {
     private ImageView imageBack, imageSave;
     private EditText inputNoteTitle, inputNoteSubtitle, inputNoteText;
     private TextView textDateTime;
+    private View viewSubtitleIndicator;
 
+    private String selectedNoteColor;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         //noinspection deprecation
@@ -45,6 +49,7 @@ public class CreateNoteActivity extends AppCompatActivity {
         inputNoteSubtitle = findViewById(R.id.input_note_subtitle);
         inputNoteText = findViewById(R.id.input_note);
         textDateTime = findViewById(R.id.text_date_time);
+        viewSubtitleIndicator = findViewById(R.id.view_subtitle_indicator);
 
         imageBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,7 +69,10 @@ public class CreateNoteActivity extends AppCompatActivity {
             }
         });
 
+        selectedNoteColor = "#333333";
+
         initMiscellaneous();
+        setSubtitleIndicatorColor();
 
 
     }
@@ -83,6 +91,7 @@ public class CreateNoteActivity extends AppCompatActivity {
         note.setSubtitle(inputNoteSubtitle.getText().toString());
         note.setNoteText(inputNoteText.getText().toString());
         note.setDateTime(textDateTime.getText().toString());
+        note.setColor(selectedNoteColor);
 
         @SuppressLint("StaticFieldLeak")
         class SaveNoteTask extends AsyncTask<Void, Void, Void> {
@@ -117,5 +126,81 @@ public class CreateNoteActivity extends AppCompatActivity {
                 }
             }
         });
+
+        final ImageView imageColor1 = layoutMiscellaneous.findViewById(R.id.image_color_1);
+        final ImageView imageColor2 = layoutMiscellaneous.findViewById(R.id.image_color_2);
+        final ImageView imageColor3 = layoutMiscellaneous.findViewById(R.id.image_color_3);
+        final ImageView imageColor4 = layoutMiscellaneous.findViewById(R.id.image_color_4);
+        final ImageView imageColor5 = layoutMiscellaneous.findViewById(R.id.image_color_5);
+
+        layoutMiscellaneous.findViewById(R.id.view_color_1).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                selectedNoteColor = "#333333";
+                imageColor1.setImageResource(R.drawable.ic_tick);
+                imageColor2.setImageResource(0);
+                imageColor3.setImageResource(0);
+                imageColor4.setImageResource(0);
+                imageColor5.setImageResource(0);
+                setSubtitleIndicatorColor();
+            }
+        });
+
+        layoutMiscellaneous.findViewById(R.id.view_color_2).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                selectedNoteColor = "#FDBE3B";
+                imageColor1.setImageResource(0);
+                imageColor2.setImageResource(R.drawable.ic_tick);
+                imageColor3.setImageResource(0);
+                imageColor4.setImageResource(0);
+                imageColor5.setImageResource(0);
+                setSubtitleIndicatorColor();
+            }
+        });
+
+        layoutMiscellaneous.findViewById(R.id.view_color_3).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                selectedNoteColor = "#FF4842";
+                imageColor1.setImageResource(0);
+                imageColor2.setImageResource(0);
+                imageColor3.setImageResource(R.drawable.ic_tick);
+                imageColor4.setImageResource(0);
+                imageColor5.setImageResource(0);
+                setSubtitleIndicatorColor();
+            }
+        });
+
+        layoutMiscellaneous.findViewById(R.id.view_color_4).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                selectedNoteColor = "#3A52FC";
+                imageColor1.setImageResource(0);
+                imageColor2.setImageResource(0);
+                imageColor3.setImageResource(0);
+                imageColor4.setImageResource(R.drawable.ic_tick);
+                imageColor5.setImageResource(0);
+                setSubtitleIndicatorColor();
+            }
+        });
+
+        layoutMiscellaneous.findViewById(R.id.view_color_5).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                selectedNoteColor = "#000000";
+                imageColor1.setImageResource(0);
+                imageColor2.setImageResource(0);
+                imageColor3.setImageResource(0);
+                imageColor4.setImageResource(0);
+                imageColor5.setImageResource(R.drawable.ic_tick);
+                setSubtitleIndicatorColor();
+            }
+        });
+    }
+
+    private  void setSubtitleIndicatorColor(){
+        GradientDrawable gradientDrawable = (GradientDrawable) viewSubtitleIndicator.getBackground();
+        gradientDrawable.setColor(Color.parseColor(selectedNoteColor));
     }
 }
