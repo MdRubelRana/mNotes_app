@@ -63,12 +63,13 @@
         android:id="@+id/notes_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/layout_search"
         android:layout_marginStart="@dimen/_2sdp"
         android:layout_marginEnd="@dimen/_2sdp"
         android:clipToPadding="false"
         android:paddingStart="0dp"
         android:paddingEnd="@dimen/_12sdp"
-        android:layout_below="@+id/layout_search" />
+        android:paddingBottom="@dimen/_60sdp" />
 
     <LinearLayout
         android:id="@+id/layout_quick_actions"
@@ -110,13 +111,13 @@
     </LinearLayout>
 
     <ImageView
-        android:layout_marginBottom="@dimen/_minus20sdp"
-        android:layout_above="@id/layout_quick_actions"
-        android:layout_alignParentEnd="true"
         android:id="@+id/image_add_note_main"
         android:layout_width="@dimen/_40sdp"
         android:layout_height="@dimen/_40sdp"
+        android:layout_above="@id/layout_quick_actions"
+        android:layout_alignParentEnd="true"
         android:layout_marginEnd="@dimen/_30sdp"
+        android:layout_marginBottom="@dimen/_minus20sdp"
         android:background="@drawable/background_add_button"
         android:contentDescription="@string/app_name"
         android:padding="@dimen/_5sdp"

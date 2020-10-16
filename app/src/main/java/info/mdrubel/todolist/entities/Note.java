@@ -31,9 +31,13 @@ public class Note implements Serializable {
     @ColumnInfo(name = "color")
     private String color;
 
+    @ColumnInfo(name = "web_link")
+    private String webLink;
+
     public int getId() {
         return id;
     }
+
 
     public void setId(int id) {
         this.id = id;
@@ -85,6 +89,14 @@ public class Note implements Serializable {
 
     public void setColor(String color) {
         this.color = color;
+    }
+
+    public String getWebLink() {
+        return webLink;
+    }
+
+    public void setWebLink(String webLink) {
+        this.webLink = webLink;
     }
 
     @NonNull
