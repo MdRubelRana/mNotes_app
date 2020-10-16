@@ -118,9 +118,9 @@
 
 
             <EditText
+                android:id="@+id/input_note"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/input_note"
                 android:layout_marginStart="@dimen/_12sdp"
                 android:layout_marginTop="@dimen/_15sdp"
                 android:layout_marginEnd="@dimen/_12sdp"
@@ -142,5 +142,7 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
+
+    <include layout="@layout/layout_miscellaneous" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
