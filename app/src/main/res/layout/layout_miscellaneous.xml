@@ -214,19 +214,22 @@
     </LinearLayout>
 
     <LinearLayout
+        android:background="@drawable/background_delete_2"
+        android:visibility="visible"
         android:id="@+id/layout_delete_note"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_35sdp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
         android:layout_margin="@dimen/_10sdp"
-        android:background="@color/colorNoteColor3"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:padding="@dimen/_3sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
         android:orientation="horizontal"
         tools:ignore="UseCompoundDrawables">
 
         <ImageView
-            android:layout_width="@dimen/_40sdp"
-            android:layout_height="@dimen/_40sdp"
-            android:layout_gravity="center_vertical"
-            android:layout_weight="1"
+            android:layout_width="@dimen/_22sdp"
+            android:layout_height="@dimen/_22sdp"
             android:contentDescription="@string/app_name"
             android:src="@drawable/ic_delete"
             app:tint="@color/colorWhite" />
@@ -236,7 +239,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginStart="@dimen/_10sdp"
-            android:layout_weight="1"
             android:fontFamily="@font/medium"
             android:includeFontPadding="false"
             android:text="@string/delete_permanently"

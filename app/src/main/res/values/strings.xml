@@ -9,4 +9,6 @@
     <string name="delete_permanently">Delete permanently</string>
     <string name="enter_url">Enter url</string>
     <string name="cancel">Cancel</string>
+    <string name="delete_note">Delete</string>
+    <string name="are_you_sure_to_delete_this_note">Are you sure to delete this note?</string>
 </resources>
