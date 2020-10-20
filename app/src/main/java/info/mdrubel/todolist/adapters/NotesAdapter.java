@@ -2,33 +2,50 @@ package info.mdrubel.todolist.adapters;
 
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.os.Handler;
 import android.graphics.drawable.GradientDrawable;
+import android.os.Looper;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.makeramen.roundedimageview.RoundedImageView;
 
+import org.w3c.dom.Text;
+
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import info.mdrubel.todolist.R;
+import info.mdrubel.todolist.activities.MainActivity;
 import info.mdrubel.todolist.entities.Note;
 import info.mdrubel.todolist.listeners.NotesListener;
 
-public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NoteViewHolder> {
+import static android.content.ContentValues.TAG;
 
+public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NoteViewHolder> {
+    private final static int SEARCH_KEYWORD_RESULT_FILTER_TIME = 100;
     private List<Note> notes;
     private NotesListener notesListener;
+    private Timer timer;
+    private List<Note> noteSource;
+
+    private TextView noNoteFound;
 
 
     public NotesAdapter(List<Note> notes, NotesListener notesListener) {
         this.notes = notes;
         this.notesListener = notesListener;
+        noteSource = notes;
     }
 
     @NonNull
@@ -97,6 +114,41 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NoteViewHold
             } else {
                 imageNote.setVisibility(View.GONE);
             }
+        }
+    }
+
+    public void searchNotes(final String searchKeyword) {
+
+        timer = new Timer();
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                if (searchKeyword.trim().isEmpty()) {
+                    notes = noteSource;
+                } else {
+                    ArrayList<Note> temp = new ArrayList<>();
+                    for (Note note : noteSource) {
+                        if (note.getTitle().toLowerCase().contains(searchKeyword.toLowerCase()) ||
+                                note.getSubtitle().toLowerCase().contains(searchKeyword.toLowerCase())) {
+                            temp.add(note);
+                        }
+                    }
+                    notes = temp;
+                }
+                new Handler(Looper.getMainLooper()).post(new Runnable() {
+                    @Override
+                    public void run() {
+                        notifyDataSetChanged();
+                    }
+                });
+            }
+        }, SEARCH_KEYWORD_RESULT_FILTER_TIME);
+    }
+
+
+    public void cancelTimer() {
+        if (timer != null) {
+            timer.cancel();
         }
     }
 }

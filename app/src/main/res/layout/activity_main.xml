@@ -5,26 +5,56 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
-    tools:context=".activities.MainActivity">
+    tools:context=".activities.MainActivity"
+    tools:ignore="UseSwitchCompatOrMaterialXml">
 
-    <TextView
-        android:id="@+id/text_my_notes"
+
+    <LinearLayout
+        android:id="@+id/layout_top_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_12sdp"
-        android:layout_marginTop="@dimen/_20sdp"
-        android:layout_marginEnd="@dimen/_12sdp"
-        android:fontFamily="@font/bold"
-        android:includeFontPadding="false"
-        android:text="@string/my_notes"
-        android:textColor="@color/colorWhite"
-        android:textSize="@dimen/_20sdp" />
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <TextView
+            android:id="@+id/text_my_notes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_12sdp"
+            android:layout_weight="1"
+            android:fontFamily="@font/bold"
+            android:includeFontPadding="false"
+            android:text="@string/my_notes"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/_20sdp" />
+
+        <!--        <Switch-->
+        <!--            android:id="@+id/switch_dark_light_mode"-->
+        <!--            android:layout_width="@dimen/_8sdp"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginTop="@dimen/_20sdp"-->
+        <!--            android:layout_marginEnd="@dimen/_12sdp"-->
+        <!--            android:layout_weight="1" />-->
+
+        <!--        <ImageView-->
+        <!--            android:id="@+id/image_light_dark_image"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginTop="@dimen/_20sdp"-->
+        <!--            android:layout_marginEnd="@dimen/_minus20sdp"-->
+        <!--            android:layout_weight="1"-->
+        <!--            android:src="@drawable/ic_light" />-->
+
+    </LinearLayout>
+
 
     <LinearLayout
         android:id="@+id/layout_search"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/text_my_notes"
+        android:layout_below="@+id/layout_top_bar"
         android:layout_marginStart="@dimen/_8sdp"
         android:layout_marginTop="@dimen/_15sdp"
         android:layout_marginEnd="@dimen/_8sdp"
@@ -32,21 +62,17 @@
         android:gravity="center_vertical"
         android:orientation="horizontal"
         android:paddingStart="@dimen/_10sdp"
-        android:paddingEnd="@dimen/_10sdp">
+        android:paddingEnd="@dimen/_10sdp"
+        android:weightSum="5">
 
-
-        <ImageView
-            android:layout_width="@dimen/_20sdp"
-            android:layout_height="@dimen/_20sdp"
-            android:contentDescription="@string/search_note"
-            android:src="@drawable/ic_search"
-            app:tint="@color/colorSearchIcon" />
 
         <EditText
             android:id="@+id/input_search"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_35sdp"
-            android:layout_marginStart="@dimen/_12sdp"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_12sdp"
+            android:layout_weight="3"
             android:background="@null"
             android:fontFamily="@font/regular"
             android:hint="@string/search_note"
@@ -57,6 +83,15 @@
             android:textColor="@color/colorWhite"
             android:textColorHint="@color/colorTextHint"
             android:textSize="@dimen/_13ssp" />
+
+        <ImageView
+            android:layout_width="@dimen/_23sdp"
+            android:layout_height="@dimen/_23sdp"
+            android:layout_marginEnd="@dimen/_12sdp"
+            android:layout_weight="1"
+            android:contentDescription="@string/search_note"
+            android:src="@drawable/ic_search"
+            app:tint="@color/colorSearchIcon" />
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
@@ -71,55 +106,67 @@
         android:paddingEnd="@dimen/_12sdp"
         android:paddingBottom="@dimen/_60sdp" />
 
-    <LinearLayout
-        android:id="@+id/layout_quick_actions"
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/no_note_found_text_view"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:background="@color/colorQuickActionBackground"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        android:padding="@dimen/_15sdp">
+        android:layout_centerInParent="true"
+        android:fontFamily="@font/medium"
+        android:gravity="center"
+        android:text="@string/oops_no_notes_has_been_found"
+        android:textSize="@dimen/_12ssp"
+        android:visibility="gone" />
+
+    <!--    <LinearLayout-->
+    <!--        android:id="@+id/layout_quick_actions"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_alignParentBottom="true"-->
+    <!--        android:background="@color/colorQuickActionBackground"-->
+    <!--        android:gravity="center_vertical"-->
+    <!--        android:orientation="horizontal"-->
+    <!--        android:padding="@dimen/_15sdp">-->
 
 
-        <ImageView
-            android:id="@+id/image_add_note"
-            android:layout_width="@dimen/_23sdp"
-            android:layout_height="@dimen/_23sdp"
-            android:contentDescription="@string/app_name"
-            android:src="@drawable/ic_add"
-            app:tint="@color/colorIcons" />
+    <!--        <ImageView-->
+    <!--            android:id="@+id/image_add_note"-->
+    <!--            android:layout_width="@dimen/_23sdp"-->
+    <!--            android:layout_height="@dimen/_23sdp"-->
+    <!--            android:contentDescription="@string/app_name"-->
+    <!--            android:src="@drawable/ic_add"-->
+    <!--            app:tint="@color/colorIcons" />-->
 
-        <ImageView
-            android:id="@+id/image_add_image"
-            android:layout_width="@dimen/_23sdp"
-            android:layout_height="@dimen/_23sdp"
-            android:layout_marginStart="@dimen/_15sdp"
-            android:contentDescription="@string/app_name"
-            android:src="@drawable/ic_image"
-            app:tint="@color/colorIcons" />
+    <!--        <ImageView-->
+    <!--            android:id="@+id/image_add_image"-->
+    <!--            android:layout_width="@dimen/_23sdp"-->
+    <!--            android:layout_height="@dimen/_23sdp"-->
+    <!--            android:layout_marginStart="@dimen/_15sdp"-->
+    <!--            android:contentDescription="@string/app_name"-->
+    <!--            android:src="@drawable/ic_image"-->
+    <!--            app:tint="@color/colorIcons" />-->
 
-        <ImageView
-            android:id="@+id/image_add_browser"
-            android:layout_width="@dimen/_23sdp"
-            android:layout_height="@dimen/_23sdp"
-            android:layout_marginStart="@dimen/_15sdp"
-            android:contentDescription="@string/app_name"
-            android:src="@drawable/ic_browser"
-            app:tint="@color/colorIcons" />
+    <!--        <ImageView-->
+    <!--            android:id="@+id/image_add_browser"-->
+    <!--            android:layout_width="@dimen/_23sdp"-->
+    <!--            android:layout_height="@dimen/_23sdp"-->
+    <!--            android:layout_marginStart="@dimen/_15sdp"-->
+    <!--            android:contentDescription="@string/app_name"-->
+    <!--            android:src="@drawable/ic_browser"-->
+    <!--            app:tint="@color/colorIcons" />-->
 
-    </LinearLayout>
+    <!--    </LinearLayout>-->
 
     <ImageView
         android:id="@+id/image_add_note_main"
         android:layout_width="@dimen/_40sdp"
         android:layout_height="@dimen/_40sdp"
-        android:layout_above="@id/layout_quick_actions"
         android:layout_alignParentEnd="true"
-        android:layout_marginEnd="@dimen/_30sdp"
-        android:layout_marginBottom="@dimen/_minus20sdp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="@dimen/_35sdp"
+        android:layout_marginBottom="@dimen/_35sdp"
         android:background="@drawable/background_add_button"
         android:contentDescription="@string/app_name"
+        android:elevation="@dimen/_5sdp"
         android:padding="@dimen/_5sdp"
         android:src="@drawable/ic_add_sign"
         app:tint="@color/colorPrimary" />

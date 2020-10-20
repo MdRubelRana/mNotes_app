@@ -3,15 +3,25 @@ package info.mdrubel.todolist.activities;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.CompoundButton;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Switch;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,6 +44,9 @@ public class MainActivity extends AppCompatActivity implements NotesListener {
     private List<Note> noteList;
     private NotesAdapter notesAdapter;
 
+
+    private TextView noNoteFound;
+
     private int noteClickedPosition = -1;
 
     @Override
@@ -43,8 +56,10 @@ public class MainActivity extends AppCompatActivity implements NotesListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         //  Hooks
         imageAddNoteMain = findViewById(R.id.image_add_note_main);
+        noNoteFound = findViewById(R.id.no_note_found_text_view);
 
         imageAddNoteMain.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,6 +82,33 @@ public class MainActivity extends AppCompatActivity implements NotesListener {
         notesRecyclerView.setAdapter(notesAdapter);
 
         getNotes(REQUEST_CODE_SHOW_NOTES, false);
+
+        //  Hooks
+        EditText inputSearch = findViewById(R.id.input_search);
+        inputSearch.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                notesAdapter.cancelTimer();
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if (noteList.size() != 0) {
+                    notesAdapter.searchNotes(s.toString());
+                }
+                else {
+                    noNoteFound.setVisibility(View.VISIBLE);
+                }
+
+
+            }
+        });
     }
 
     @Override
@@ -129,4 +171,5 @@ public class MainActivity extends AppCompatActivity implements NotesListener {
             }
         }
     }
+
 }

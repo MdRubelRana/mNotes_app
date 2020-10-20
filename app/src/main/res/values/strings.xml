@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">todolist</string>
     <string name="my_notes">My Notes</string>
-    <string name="search_note">Search note</string>
-    <string name="note_subtitle">Note subtitle</string>
+    <string name="search_note">Enter keyword...</string>
+    <string name="note_subtitle">Note subtitle...</string>
     <string name="pick_color">Pick Color</string>
     <string name="add_image">Add image</string>
     <string name="add_link">Add link</string>
@@ -11,4 +11,8 @@
     <string name="cancel">Cancel</string>
     <string name="delete_note">Delete</string>
     <string name="are_you_sure_to_delete_this_note">Are you sure to delete this note?</string>
+    <string name="note_title">Note title...</string>
+    <string name="write_details_about_note">Write details about note...</string>
+    <string name="oops_no_notes_has_been_found">Oops! no notes have been found.</string>
+    <string name="miscellaneous">Miscellaneous</string>
 </resources>

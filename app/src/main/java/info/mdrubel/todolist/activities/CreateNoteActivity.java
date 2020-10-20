@@ -217,6 +217,7 @@ public class CreateNoteActivity extends AppCompatActivity {
         final ImageView imageColor3 = layoutMiscellaneous.findViewById(R.id.image_color_3);
         final ImageView imageColor4 = layoutMiscellaneous.findViewById(R.id.image_color_4);
         final ImageView imageColor5 = layoutMiscellaneous.findViewById(R.id.image_color_5);
+        final ImageView imageColor6 = layoutMiscellaneous.findViewById(R.id.image_color_6);
 
         layoutMiscellaneous.findViewById(R.id.view_color_1).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -227,6 +228,7 @@ public class CreateNoteActivity extends AppCompatActivity {
                 imageColor3.setImageResource(0);
                 imageColor4.setImageResource(0);
                 imageColor5.setImageResource(0);
+                imageColor6.setImageResource(0);
                 setSubtitleIndicatorColor();
             }
         });
@@ -240,6 +242,7 @@ public class CreateNoteActivity extends AppCompatActivity {
                 imageColor3.setImageResource(0);
                 imageColor4.setImageResource(0);
                 imageColor5.setImageResource(0);
+                imageColor6.setImageResource(0);
                 setSubtitleIndicatorColor();
             }
         });
@@ -253,6 +256,7 @@ public class CreateNoteActivity extends AppCompatActivity {
                 imageColor3.setImageResource(R.drawable.ic_tick);
                 imageColor4.setImageResource(0);
                 imageColor5.setImageResource(0);
+                imageColor6.setImageResource(0);
                 setSubtitleIndicatorColor();
             }
         });
@@ -266,6 +270,7 @@ public class CreateNoteActivity extends AppCompatActivity {
                 imageColor3.setImageResource(0);
                 imageColor4.setImageResource(R.drawable.ic_tick);
                 imageColor5.setImageResource(0);
+                imageColor6.setImageResource(0);
                 setSubtitleIndicatorColor();
             }
         });
@@ -273,12 +278,27 @@ public class CreateNoteActivity extends AppCompatActivity {
         layoutMiscellaneous.findViewById(R.id.view_color_5).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                selectedNoteColor = "#000000";
+                selectedNoteColor = "#8854d0";
                 imageColor1.setImageResource(0);
                 imageColor2.setImageResource(0);
                 imageColor3.setImageResource(0);
                 imageColor4.setImageResource(0);
                 imageColor5.setImageResource(R.drawable.ic_tick);
+                imageColor6.setImageResource(0);
+                setSubtitleIndicatorColor();
+            }
+        });
+
+        layoutMiscellaneous.findViewById(R.id.view_color_6).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                selectedNoteColor = "#44bd32";
+                imageColor1.setImageResource(0);
+                imageColor2.setImageResource(0);
+                imageColor3.setImageResource(0);
+                imageColor4.setImageResource(0);
+                imageColor5.setImageResource(0);
+                imageColor6.setImageResource(R.drawable.ic_tick);
                 setSubtitleIndicatorColor();
             }
         });
@@ -293,8 +313,11 @@ public class CreateNoteActivity extends AppCompatActivity {
                 case "#3A52FC":
                     layoutMiscellaneous.findViewById(R.id.view_color_4).performClick();
                     break;
-                case "#000000":
+                case "#8854d0":
                     layoutMiscellaneous.findViewById(R.id.view_color_5).performClick();
+                    break;
+                case "#44bd32":
+                    layoutMiscellaneous.findViewById(R.id.view_color_6).performClick();
                     break;
 
             }
@@ -404,7 +427,7 @@ public class CreateNoteActivity extends AppCompatActivity {
             if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 selectImage();
             } else {
-                Toast.makeText(this, "Permission Denied!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Permission denied!", Toast.LENGTH_SHORT).show();
             }
         }
     }
