@@ -10,7 +10,7 @@ import android.view.WindowManager;
 import info.mdrubel.todolist.activities.MainActivity;
 
 public class SplashScreen extends AppCompatActivity {
-    private static int SPLASH_SCREEN = 500;
+    private static int SPLASH_SCREEN = 2500;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

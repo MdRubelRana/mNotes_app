@@ -5,20 +5,17 @@ import android.graphics.Color;
 import android.os.Handler;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Looper;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.makeramen.roundedimageview.RoundedImageView;
 
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,11 +23,9 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import info.mdrubel.todolist.R;
-import info.mdrubel.todolist.activities.MainActivity;
 import info.mdrubel.todolist.entities.Note;
 import info.mdrubel.todolist.listeners.NotesListener;
 
-import static android.content.ContentValues.TAG;
 
 public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NoteViewHolder> {
     private final static int SEARCH_KEYWORD_RESULT_FILTER_TIME = 100;
@@ -38,8 +33,6 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NoteViewHold
     private NotesListener notesListener;
     private Timer timer;
     private List<Note> noteSource;
-
-    private TextView noNoteFound;
 
 
     public NotesAdapter(List<Note> notes, NotesListener notesListener) {

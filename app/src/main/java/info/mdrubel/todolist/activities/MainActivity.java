@@ -1,33 +1,34 @@
 package info.mdrubel.todolist.activities;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
+import androidx.appcompat.widget.SwitchCompat;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
-import org.w3c.dom.Text;
+
+import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import info.mdrubel.todolist.R;
-import info.mdrubel.todolist.activities.CreateNoteActivity;
 import info.mdrubel.todolist.adapters.NotesAdapter;
 import info.mdrubel.todolist.database.NotesDatabase;
 import info.mdrubel.todolist.entities.Note;
@@ -35,6 +36,7 @@ import info.mdrubel.todolist.listeners.NotesListener;
 
 public class MainActivity extends AppCompatActivity implements NotesListener {
 
+    private static final int BACKSPACE_REQUEST_TIME = 1500;
     public static final int REQUEST_CODE_ADD_NOTE = 1;
     public static final int REQUEST_CODE_UPDATE_NOTE = 2;
     public static final int REQUEST_CODE_SHOW_NOTES = 3;
@@ -49,6 +51,10 @@ public class MainActivity extends AppCompatActivity implements NotesListener {
 
     private int noteClickedPosition = -1;
 
+    SwitchCompat switchCompat;
+    SharedPreferences sharedPreferences = null;
+//    Animatoo.animateSwipeRight(WelcomeScreen.this);
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         //noinspection deprecation
@@ -56,6 +62,32 @@ public class MainActivity extends AppCompatActivity implements NotesListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        switchCompat = findViewById(R.id.switch_dark_light_mode);
+        sharedPreferences = getSharedPreferences("night", 0);
+        Boolean booleanValue = sharedPreferences.getBoolean("night_mode", true);
+
+        if (booleanValue) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+            switchCompat.setChecked(true);
+        }
+        switchCompat.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                    switchCompat.setChecked(true);
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor.putBoolean("night_mode", true);
+                    editor.commit();
+                } else {
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                    switchCompat.setChecked(false);
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor.putBoolean("night_mode", false);
+                    editor.commit();
+                }
+            }
+        });
 
         //  Hooks
         imageAddNoteMain = findViewById(R.id.image_add_note_main);
@@ -102,11 +134,6 @@ public class MainActivity extends AppCompatActivity implements NotesListener {
                 if (noteList.size() != 0) {
                     notesAdapter.searchNotes(s.toString());
                 }
-                else {
-                    noNoteFound.setVisibility(View.VISIBLE);
-                }
-
-
             }
         });
     }
@@ -130,14 +157,6 @@ public class MainActivity extends AppCompatActivity implements NotesListener {
             @Override
             protected void onPostExecute(List<Note> notes) {
                 super.onPostExecute(notes);
-//                if (noteList.size() == 0) {
-//                    noteList.addAll(notes);
-//                    notesAdapter.notifyDataSetChanged();
-//                } else {
-//                    noteList.add(0, notes.get(0));
-//                    notesAdapter.notifyItemInserted(0);
-//                }
-//                notesRecyclerView.smoothScrollToPosition(0);
 
                 if (requestCode == REQUEST_CODE_SHOW_NOTES) {
                     noteList.addAll(notes);
@@ -170,6 +189,28 @@ public class MainActivity extends AppCompatActivity implements NotesListener {
                 getNotes(REQUEST_CODE_UPDATE_NOTE, data.getBooleanExtra("isNoteDeleted", false));
             }
         }
+    }
+
+
+    boolean doubleBackToExitPressedOnce = false;
+
+    @Override
+    public void onBackPressed() {
+        if (doubleBackToExitPressedOnce) {
+            super.onBackPressed();
+            return;
+        }
+
+        this.doubleBackToExitPressedOnce = true;
+        Toast.makeText(this, "Please click back again to exit.", Toast.LENGTH_SHORT).show();
+
+        new Handler().postDelayed(new Runnable() {
+
+            @Override
+            public void run() {
+                doubleBackToExitPressedOnce = false;
+            }
+        }, BACKSPACE_REQUEST_TIME);
     }
 
 }

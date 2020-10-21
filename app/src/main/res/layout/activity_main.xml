@@ -27,16 +27,17 @@
             android:fontFamily="@font/bold"
             android:includeFontPadding="false"
             android:text="@string/my_notes"
-            android:textColor="@color/colorWhite"
+            android:textColor="@color/colorMainTitle"
             android:textSize="@dimen/_20sdp" />
 
-        <!--        <Switch-->
-        <!--            android:id="@+id/switch_dark_light_mode"-->
-        <!--            android:layout_width="@dimen/_8sdp"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:layout_marginTop="@dimen/_20sdp"-->
-        <!--            android:layout_marginEnd="@dimen/_12sdp"-->
-        <!--            android:layout_weight="1" />-->
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switch_dark_light_mode"
+            android:layout_width="@dimen/_8sdp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_12sdp"
+            android:layout_weight="1" />
+
 
         <!--        <ImageView-->
         <!--            android:id="@+id/image_light_dark_image"-->
@@ -51,6 +52,7 @@
 
 
     <LinearLayout
+        android:elevation="@dimen/_1sdp"
         android:id="@+id/layout_search"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -80,7 +82,7 @@
             android:importantForAutofill="no"
             android:includeFontPadding="false"
             android:inputType="text"
-            android:textColor="@color/colorWhite"
+            android:textColor="@color/colorMainTitle"
             android:textColorHint="@color/colorTextHint"
             android:textSize="@dimen/_13ssp" />
 
@@ -166,7 +168,7 @@
         android:layout_marginBottom="@dimen/_35sdp"
         android:background="@drawable/background_add_button"
         android:contentDescription="@string/app_name"
-        android:elevation="@dimen/_5sdp"
+        android:elevation="@dimen/_10sdp"
         android:padding="@dimen/_5sdp"
         android:src="@drawable/ic_add_sign"
         app:tint="@color/colorPrimary" />

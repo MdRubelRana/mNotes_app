@@ -16,13 +16,14 @@ public abstract class NotesDatabase extends RoomDatabase {
     private static NotesDatabase notesDatabase;
 
     public static synchronized NotesDatabase getDatabase(Context context) {
-        if(notesDatabase == null){
+        if (notesDatabase == null) {
             notesDatabase = Room.databaseBuilder(
                     context,
                     NotesDatabase.class,
                     "notes_db"
             ).build();
-        } return notesDatabase;
+        }
+        return notesDatabase;
     }
 
     public abstract NoteDao noteDao();

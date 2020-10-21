@@ -34,7 +34,7 @@ import androidx.core.content.ContextCompat;
 
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 
-import java.io.FileNotFoundException;
+
 import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -155,10 +155,10 @@ public class CreateNoteActivity extends AppCompatActivity {
 
     private void saveNote() {
         if (inputNoteTitle.getText().toString().trim().isEmpty()) {
-            Toast.makeText(this, "Note title cant't be empty!", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Title can not be empty!", Toast.LENGTH_SHORT).show();
             return;
         } else if (inputNoteSubtitle.getText().toString().trim().isEmpty() && inputNoteText.getText().toString().trim().isEmpty()) {
-            Toast.makeText(this, "Note cant't be empty!", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Note cant't be empty!", Toast.LENGTH_SHORT).show();
             return;
         }
 
