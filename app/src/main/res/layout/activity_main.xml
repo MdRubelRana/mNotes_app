@@ -52,7 +52,6 @@
 
 
     <LinearLayout
-        android:elevation="@dimen/_1sdp"
         android:id="@+id/layout_search"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -61,6 +60,9 @@
         android:layout_marginTop="@dimen/_15sdp"
         android:layout_marginEnd="@dimen/_8sdp"
         android:background="@drawable/background_search"
+        android:elevation="@dimen/_1sdp"
+        android:focusable="false"
+        android:focusableInTouchMode="true"
         android:gravity="center_vertical"
         android:orientation="horizontal"
         android:paddingStart="@dimen/_10sdp"

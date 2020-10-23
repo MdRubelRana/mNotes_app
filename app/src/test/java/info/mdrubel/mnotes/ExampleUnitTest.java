@@ -1,4 +1,4 @@
-package info.mdrubel.todolist;
+package info.mdrubel.mnotes;
 
 import org.junit.Test;
 

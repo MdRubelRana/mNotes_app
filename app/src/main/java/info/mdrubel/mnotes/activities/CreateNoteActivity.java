@@ -1,4 +1,4 @@
-package info.mdrubel.todolist.activities;
+package info.mdrubel.mnotes.activities;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
@@ -40,9 +40,9 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-import info.mdrubel.todolist.R;
-import info.mdrubel.todolist.database.NotesDatabase;
-import info.mdrubel.todolist.entities.Note;
+import info.mdrubel.mnotes.R;
+import info.mdrubel.mnotes.database.NotesDatabase;
+import info.mdrubel.mnotes.entities.Note;
 
 public class CreateNoteActivity extends AppCompatActivity {
 
@@ -155,10 +155,10 @@ public class CreateNoteActivity extends AppCompatActivity {
 
     private void saveNote() {
         if (inputNoteTitle.getText().toString().trim().isEmpty()) {
-            Toast.makeText(this, "Title can not be empty!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Title can not be empty.", Toast.LENGTH_SHORT).show();
             return;
         } else if (inputNoteSubtitle.getText().toString().trim().isEmpty() && inputNoteText.getText().toString().trim().isEmpty()) {
-            Toast.makeText(this, "Note cant't be empty!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Note can not be empty.", Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -427,7 +427,7 @@ public class CreateNoteActivity extends AppCompatActivity {
             if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 selectImage();
             } else {
-                Toast.makeText(this, "Permission denied!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Oops! Permission denied.", Toast.LENGTH_SHORT).show();
             }
         }
     }
@@ -490,7 +490,7 @@ public class CreateNoteActivity extends AppCompatActivity {
                     if (inputUrl.getText().toString().trim().isEmpty()) {
                         Toast.makeText(CreateNoteActivity.this, "URL can not be empty.", Toast.LENGTH_SHORT).show();
                     } else if (!Patterns.WEB_URL.matcher(inputUrl.getText().toString()).matches()) {
-                        Toast.makeText(CreateNoteActivity.this, "Enter a valid URL.", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(CreateNoteActivity.this, "Please enter a valid URL.", Toast.LENGTH_SHORT).show();
                     } else {
                         textWebUrl.setText(inputUrl.getText().toString());
                         layoutWebUrl.setVisibility(View.VISIBLE);

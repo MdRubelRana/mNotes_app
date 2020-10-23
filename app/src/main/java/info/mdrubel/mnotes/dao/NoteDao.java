@@ -1,4 +1,4 @@
-package info.mdrubel.todolist.dao;
+package info.mdrubel.mnotes.dao;
 
 
 import androidx.room.Dao;
@@ -9,7 +9,7 @@ import androidx.room.Query;
 
 import java.util.List;
 
-import info.mdrubel.todolist.entities.Note;
+import info.mdrubel.mnotes.entities.Note;
 
 @Dao
 public interface NoteDao {

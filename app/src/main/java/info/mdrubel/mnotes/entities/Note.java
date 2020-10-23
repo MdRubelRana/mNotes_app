@@ -1,4 +1,4 @@
-package info.mdrubel.todolist.entities;
+package info.mdrubel.mnotes.entities;
 
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;

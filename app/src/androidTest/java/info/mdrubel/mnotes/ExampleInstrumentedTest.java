@@ -1,4 +1,4 @@
-package info.mdrubel.todolist;
+package info.mdrubel.mnotes;
 
 import android.content.Context;
 

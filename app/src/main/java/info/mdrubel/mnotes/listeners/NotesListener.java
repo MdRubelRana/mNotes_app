@@ -1,6 +1,6 @@
-package info.mdrubel.todolist.listeners;
+package info.mdrubel.mnotes.listeners;
 
-import info.mdrubel.todolist.entities.Note;
+import info.mdrubel.mnotes.entities.Note;
 
 public interface NotesListener {
     void onNoteClicked(Note note, int position);

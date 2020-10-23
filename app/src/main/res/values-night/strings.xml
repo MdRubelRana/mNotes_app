@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">todolist</string>
+    <string name="app_name">mNotes</string>
     <string name="my_notes">My Notes</string>
     <string name="search_note">Enter keyword...</string>
     <string name="note_subtitle">Note subtitle...</string>

@@ -1,4 +1,4 @@
-package info.mdrubel.todolist.adapters;
+package info.mdrubel.mnotes.adapters;
 
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -22,9 +22,9 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import info.mdrubel.todolist.R;
-import info.mdrubel.todolist.entities.Note;
-import info.mdrubel.todolist.listeners.NotesListener;
+import info.mdrubel.mnotes.R;
+import info.mdrubel.mnotes.entities.Note;
+import info.mdrubel.mnotes.listeners.NotesListener;
 
 
 public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NoteViewHolder> {

@@ -1,4 +1,4 @@
-package info.mdrubel.todolist;
+package info.mdrubel.mnotes;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.WindowManager;
 
-import info.mdrubel.todolist.activities.MainActivity;
+import info.mdrubel.mnotes.activities.MainActivity;
 
 public class SplashScreen extends AppCompatActivity {
     private static int SPLASH_SCREEN = 2500;

@@ -1,4 +1,4 @@
-package info.mdrubel.todolist.activities;
+package info.mdrubel.mnotes.activities;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -22,17 +22,14 @@ import androidx.appcompat.widget.SwitchCompat;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
-
-import com.blogspot.atifsoftwares.animatoolib.Animatoo;
-
 import java.util.ArrayList;
 import java.util.List;
 
-import info.mdrubel.todolist.R;
-import info.mdrubel.todolist.adapters.NotesAdapter;
-import info.mdrubel.todolist.database.NotesDatabase;
-import info.mdrubel.todolist.entities.Note;
-import info.mdrubel.todolist.listeners.NotesListener;
+import info.mdrubel.mnotes.R;
+import info.mdrubel.mnotes.adapters.NotesAdapter;
+import info.mdrubel.mnotes.database.NotesDatabase;
+import info.mdrubel.mnotes.entities.Note;
+import info.mdrubel.mnotes.listeners.NotesListener;
 
 public class MainActivity extends AppCompatActivity implements NotesListener {
 
@@ -53,7 +50,6 @@ public class MainActivity extends AppCompatActivity implements NotesListener {
 
     SwitchCompat switchCompat;
     SharedPreferences sharedPreferences = null;
-//    Animatoo.animateSwipeRight(WelcomeScreen.this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,13 +74,13 @@ public class MainActivity extends AppCompatActivity implements NotesListener {
                     switchCompat.setChecked(true);
                     SharedPreferences.Editor editor = sharedPreferences.edit();
                     editor.putBoolean("night_mode", true);
-                    editor.commit();
+                    editor.apply();
                 } else {
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
                     switchCompat.setChecked(false);
                     SharedPreferences.Editor editor = sharedPreferences.edit();
                     editor.putBoolean("night_mode", false);
-                    editor.commit();
+                    editor.apply();
                 }
             }
         });
@@ -202,7 +198,7 @@ public class MainActivity extends AppCompatActivity implements NotesListener {
         }
 
         this.doubleBackToExitPressedOnce = true;
-        Toast.makeText(this, "Please click back again to exit.", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Please press back again to exit.", Toast.LENGTH_SHORT).show();
 
         new Handler().postDelayed(new Runnable() {
 
