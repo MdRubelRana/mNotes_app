@@ -28,7 +28,7 @@ I have a passion for learning and sharing my knowledge with others a public as p
 
 ---
 
-#### Table of contents ▼
+### Table of contents ▼
 
 - [Features](#features)
 - [Screenshots](#screenshots)
@@ -37,7 +37,7 @@ I have a passion for learning and sharing my knowledge with others a public as p
 
 <br>
 
-#### Features 🏆
+### Features 🏆
 
 **Check out the cool features.**
 
@@ -52,7 +52,7 @@ I have a passion for learning and sharing my knowledge with others a public as p
 
 <br>
 
-#### Screenshots 📷
+### Screenshots 📷
 
 <div align="center">
 
@@ -70,13 +70,13 @@ I have a passion for learning and sharing my knowledge with others a public as p
 
 <br>
 
-#### FAQ and support ❓
+### FAQ and support ❓
 
 Visit [my website](https://www.mdrubel.info) to asked questions.
 
 <br>
 
-#### License 🔒
+### License 🔒
 
 - Licensed under the [MIT License](LICENSE).
 
