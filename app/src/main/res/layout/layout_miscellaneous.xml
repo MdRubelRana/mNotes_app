@@ -168,7 +168,7 @@
         android:layout_height="@dimen/_35sdp"
         android:layout_margin="@dimen/_10sdp"
         android:orientation="horizontal"
-        android:weightSum="2"
+        android:weightSum="3"
         tools:ignore="UseCompoundDrawables">
 
         <LinearLayout
@@ -190,7 +190,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginStart="@dimen/_7sdp"
                 android:layout_weight="1"
                 android:fontFamily="@font/medium"
                 android:includeFontPadding="false"
@@ -221,11 +221,42 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginStart="@dimen/_7sdp"
                 android:layout_weight="1"
                 android:fontFamily="@font/medium"
                 android:includeFontPadding="false"
                 android:text="@string/add_link"
+                android:textColor="@color/colorIcons"
+                android:textSize="@dimen/_12ssp" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/layout_send_image"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <ImageView
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/ic_mail"
+                app:tint="@color/colorIcons"
+                tools:ignore="NestedWeights" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/_7sdp"
+                android:layout_weight="1"
+                android:fontFamily="@font/medium"
+                android:includeFontPadding="false"
+                android:text="@string/sent_mail"
                 android:textColor="@color/colorIcons"
                 android:textSize="@dimen/_12ssp" />
 
