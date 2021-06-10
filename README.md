@@ -52,7 +52,7 @@ I have a passion for learning and sharing my knowledge with others a public as p
 
 <br>
 
-<h4> Screenshots 📷</h4>
+# Screenshots 📷
 
 <div align="center">
 
@@ -76,7 +76,7 @@ Visit [my website](https://www.mdrubel.info) to asked questions.
 
 <br>
 
-#### License 🔒
+# License 🔒
 
 - Licensed under the [MIT License](LICENSE).
 
