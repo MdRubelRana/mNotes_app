@@ -2,7 +2,7 @@
 
 <div align="center">
 
-[![Github](https://img.shields.io/badge/GitHub-56347C?style=for-the-badge&logo=github&logoColor=white)](https://github.com/mdrubelrana) &nbsp; [![Medium](https://img.shields.io/badge/Medium-12100E?style=for-the-badge&logo=medium&logoColor=white)](https://dirtybytes.medium.com/) &nbsp; [![Linkedin](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/mohammadrubelrana) &nbsp; [![Facebook](https://img.shields.io/badge/Facebook-1877F2?style=for-the-badge&logo=facebook&logoColor=white)](https://www.facebook.com/dirtybytes) &nbsp; [![Website](https://img.shields.io/badge/Website-008080?style=for-the-badge&logo=Google-chrome&logoColor=white)](https://www.mdrubel.info)
+[![Github](https://img.shields.io/badge/GitHub-56347C?style=for-the-badge&logo=github&logoColor=white)](https://github.com/mdrubelrana) &nbsp; [![Medium](https://img.shields.io/badge/Medium-12100E?style=for-the-badge&color=success&logo=medium&logoColor=white)](https://dirtybytes.medium.com/) &nbsp; [![Linkedin](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/mohammadrubelrana) &nbsp; [![Facebook](https://img.shields.io/badge/Facebook-1877F2?style=for-the-badge&logo=facebook&logoColor=white)](https://www.facebook.com/dirtybytes) &nbsp; [![Website](https://img.shields.io/badge/Website-008080?style=for-the-badge&logo=Google-chrome&logoColor=white)](https://www.mdrubel.info)
 
 </div>
 
