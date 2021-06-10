@@ -22,7 +22,7 @@ I have a passion for learning and sharing my knowledge with others a public as p
 
 [![Available on](https://img.shields.io/badge/Available%20%20on-Google%20Play%20Store-red?style=for-the-badge&logo=google-play)](https://play.google.com/store/apps/details?id=info.mdrubel.mnotes) <br>
 [![Available on](https://img.shields.io/badge/Website%20%20-View%20Demo-green?style=for-the-badge&logo=Microsoft-edge&logoColor=white)](https://mdrubelrana.github.io/mNotes/) <br>
-![BUILT WITH](https://img.shields.io/badge/BUILT%20WITH-JAVA-blue?style=flat-square&logo=java&logoColor=white) &nbsp; &nbsp;![App Version](https://img.shields.io/badge/App%20version-1.0.0-blue?style=flat-square&logo=hashnode)
+[![BUILT WITH](https://img.shields.io/badge/BUILT%20WITH-JAVA-blue?style=flat-square&logo=java&logoColor=white)](#) &nbsp; &nbsp;![App Version](https://img.shields.io/badge/App%20version-1.0.0-blue?style=flat-square&logo=hashnode)
 
 </div>
 
