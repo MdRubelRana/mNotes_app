@@ -37,7 +37,7 @@ I have a passion for learning and sharing my knowledge with others a public as p
 
 <br>
 
-#### Features 🏆
+<h4> Features 🏆</h4>
 
 **Check out the cool features.**
 
@@ -52,7 +52,7 @@ I have a passion for learning and sharing my knowledge with others a public as p
 
 <br>
 
-#### Screenshots 📷
+<h4> Screenshots 📷</h4>
 
 <div align="center">
 
